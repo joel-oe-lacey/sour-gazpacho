@@ -14,10 +14,8 @@ export default class LoginForm extends Component {
     }
 
     handleChange = (e) => {
-        this.setState({ todo: e.target.value });
+        this.setState({ [e.target.name]: e.target.value });
     }
-
-
 
     render() {
         return (
@@ -29,12 +27,14 @@ export default class LoginForm extends Component {
                         name="email"
                         placeholder="Email..."
                         onChange={this.handleChange}
+                        required
                     />
                     <input
                         type="text"
                         name="password"
                         placeholder="Password..."
                         onChange={this.handleChange}
+                        required
                     />
                     <button
                         //onChange in here 
