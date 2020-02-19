@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { connect } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { loginUser } from '../../actions';
 import './LoginForm.scss'
 
 
-export default class LoginForm extends Component {
+class LoginForm extends Component {
     constructor() {
         super()
         this.state = {
@@ -36,19 +37,22 @@ export default class LoginForm extends Component {
                         onChange={this.handleChange}
                         required
                     />
-                    <button
-                        //onChange in here 
-                        //should hit dispatch to send to store 
-                        //needs to wrap in a link.
+                    <Link to="/"><button
+                        onClick={() => this.props.addUserToStore({
+                            email: this.state.email,
+                            password: this.state.password
+                        })}
                     >
                         Login
-                    </button>
+                    </button></Link>
                 </form>
             </section>
         )
     }
 }
 
-// const mapDispatchToProps = (dispatch) => {
-//     ideas: 
-// }
+const mapDispatchToProps = (dispatch) => ({
+    addUserToStore: (user) => { dispatch(loginUser(user)) }
+})
+
+export default connect(null, mapDispatchToProps)(LoginForm);
