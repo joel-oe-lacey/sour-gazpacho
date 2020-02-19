@@ -6,8 +6,6 @@ import Homepage from '../Homepage/Homepage';
 import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import { loadMovies } from '../../actions';
-// { !this.state.movies.length && <LoadingPage /> }
-// { this.state.movies.length && <Homepage /> }
 
 class App extends Component {
   componentDidMount() {
@@ -22,7 +20,8 @@ class App extends Component {
     return (
       <div className="app">
         <Nav />
-        <LoadingPage />
+        { !this.props.movies.length && <LoadingPage /> }
+        { this.props.movies.length && <Homepage allMovies={this.props.movies}/> }
       </div>
     )
   }
