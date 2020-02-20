@@ -1,0 +1,32 @@
+.movie-card {
+  width: 310px;
+  height: 410px;
+  border: solid 5px #8E0204;
+  margin: 10px;
+  color: rgba(0,0,0,0);
+}
+
+.movie-poster {
+  height: 400px;
+  width: 300px;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.movie-card:hover {
+  color: #FFF;
+}
+
+.movie-title {
+  text-align: center;
+  z-index: 10;
+  background-color: #8E0204;
+  width: 300px;
+  margin-top: -100px;
+}
+
+.movie-rating {
+  text-align: center;
+  z-index: 10;
+  background-color: #8E0204;
+}
