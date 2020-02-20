@@ -7,10 +7,11 @@ import LoginForm from '../LoginForm/LoginForm';
 import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import { loadMovies } from '../../actions';
+import { fetchData } from '../../utils/fetchCalls'
 
 class App extends Component {
   componentDidMount() {
-    fetch('https://rancid-tomatillos.herokuapp.com/api/v1/movies')
+    fetchData('https://rancid-tomatillos.herokuapp.com/api/v1/movies')
       .then(response => response.json())
       .then(movieData => {
         this.props.loadMoviesToStore(movieData.movies)
