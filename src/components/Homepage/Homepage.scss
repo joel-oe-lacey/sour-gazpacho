@@ -1,4 +1,15 @@
 .homepage {
   height: 92%;
   width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.movie-list-title {
+  position: absolute;
+  margin-top: -80px;
+  left: 50px;
+  font-size: 50px;
+  color: #FFF;
 }
