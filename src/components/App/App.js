@@ -3,6 +3,7 @@ import './App.scss';
 import Nav from '../Nav/Nav';
 import LoadingPage from '../LoadingPage/LoadingPage';
 import Homepage from '../Homepage/Homepage';
+import LoginForm from '../LoginForm/LoginForm';
 import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import { loadMovies } from '../../actions';
@@ -19,9 +20,16 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <Nav />
-        { !this.props.movies.length && <LoadingPage /> }
-        { this.props.movies.length && <Homepage allMovies={this.props.movies}/> }
+        <Route exact path="/login" component={LoginForm} />
+        <Route exact path='/' render={() => {
+          return (
+            <section>
+              <Nav />
+              {!this.props.movies.length && <LoadingPage />}
+              {this.props.movies.length && <Homepage allMovies={this.props.movies} />}
+            </section>
+          )}
+        } />
       </div>
     )
   }
