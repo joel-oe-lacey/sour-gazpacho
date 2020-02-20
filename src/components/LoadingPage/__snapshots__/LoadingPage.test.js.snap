@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoadingPage should match a snapshot as expected 1`] = `
+<section
+  className="loading"
+>
+  <h1>
+    Loading Movies . . .
+  </h1>
+  <div
+    className="lds-spinner"
+  >
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+  </div>
+</section>
+`;

@@ -4,7 +4,6 @@ import MovieCard from '../MovieCard/MovieCard'
 
 
 const Homepage = ({ allMovies }) => {
-  console.log(allMovies);
   let movieData =  allMovies.map(movie => {
     return <MovieCard key={movie.id} title={movie.title} averageRating={movie.average_rating}/>
   })
