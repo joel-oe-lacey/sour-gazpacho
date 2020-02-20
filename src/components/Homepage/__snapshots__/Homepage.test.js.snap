@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Homepage should match a snapshot as expected 1`] = `
+<section
+  className="homepage"
+>
+  <MovieCard
+    averageRating={7}
+    key="21"
+    title="Sonic the Hedgehog"
+  />
+  <MovieCard
+    averageRating={4}
+    key="22"
+    title="Parasite"
+  />
+</section>
+`;
