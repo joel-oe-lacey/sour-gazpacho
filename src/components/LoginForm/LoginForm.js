@@ -55,7 +55,7 @@ class LoginForm extends Component {
             return (
                 <section className="form-container"> 
                     <form className="form">
-                        <h1>Please Login</h1>
+                        <h1>Sour Gazpacho</h1>
                         <input
                             type="text"
                             name="email"
