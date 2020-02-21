@@ -15,6 +15,11 @@
     align-items: center;
     justify-content: space-around;
     border: 1px solid black;
+    background-color: #FEB40D;
+
+    h1 {
+        font-size: 2em;
+    }
 
     input {
         height: 12%;
@@ -22,11 +27,32 @@
         font-size: 1.2em;
         border: none;
         border-bottom: 2px solid black;
+        font-size: 1.2em;
+        background: transparent;
+        color: #8E0204;
+        border: none;
+        border-bottom: 2px solid #8E0204;
     }
 
     button {
         height: 12%;
         width: 60%;
+        font-size: 1.4em;
+        font-weight: bold;
+        border: none;
+        border-bottom-right-radius: 5% 35%;
+        border-top-right-radius: 5% 35%;
+        border-bottom-left-radius: 5% 35%;
+        border-top-left-radius: 5% 35%;
+        background-color: #8E0204;
+        color: #FEB40D;
+        transition: box-shadow 300ms;
+        box-shadow: none;
+
+        &:hover {
+            cursor: pointer;
+            box-shadow: 0.1rem 0.3rem 0.6rem #202020;
+        }
     }
 
 
