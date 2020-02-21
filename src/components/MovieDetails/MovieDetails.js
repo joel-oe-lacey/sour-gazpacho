@@ -10,7 +10,10 @@ const MovieDetails = ({ movie }) => {
   const formatDate = movie.release_date.split('-')
   for(var i = 0; i < 13; i++) {
     let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-    if(formatDate[1].split('')[0] === 0) {
+    if(formatDate[1] === '10') {
+      month = 'October'
+    }
+    if(formatDate[1].includes(0)) {
       if(`0${i}` === formatDate[1]) {
         month = months[i - 1]
       }
@@ -20,6 +23,7 @@ const MovieDetails = ({ movie }) => {
       }
     }
   }
+  console.log(month);
   return (
     <section className="movie-details" style={ sectionStyle }>
       <h1 className='movie-title-detail'>{movie.title}</h1>
