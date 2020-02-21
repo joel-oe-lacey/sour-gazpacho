@@ -4,6 +4,7 @@ import Nav from '../Nav/Nav';
 import LoadingPage from '../LoadingPage/LoadingPage';
 import Homepage from '../Homepage/Homepage';
 import LoginForm from '../LoginForm/LoginForm';
+import MovieDetails from '../MovieDetails/MovieDetails';
 import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import { loadMovies } from '../../actions';
@@ -28,6 +29,14 @@ class App extends Component {
               <Nav />
               {!this.props.movies.length && <LoadingPage />}
               {this.props.movies.length && <Homepage allMovies={this.props.movies} />}
+            </section>
+          )}
+        } />
+        <Route exact path='/movies/:id' render={({ match }) => {
+          const movieData = this.props.movies.find(movie => movie.id === parseInt(match.params.id))
+          return (
+            <section>
+            <Nav /><MovieDetails movie={movieData} />
             </section>
           )}
         } />

@@ -7,6 +7,7 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducer from './reducers';
+import ScrollToTop from './components/ScrollToTop.js';
 
 import * as serviceWorker from './serviceWorker';
 
@@ -15,7 +16,8 @@ const store = createStore(rootReducer, composeWithDevTools());
 ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>
-            <App />
+          <ScrollToTop />
+          <App />
         </BrowserRouter>
     </Provider>
     , document.getElementById('root'));

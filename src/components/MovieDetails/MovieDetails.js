@@ -3,25 +3,38 @@ import './MovieDetails.scss';
 
 
 const MovieDetails = ({ movie }) => {
-
+  let month;
+  const sectionStyle = {
+    backgroundImage: `url(${movie.backdrop_path})`
+  }
+  const formatDate = movie.release_date.split('-')
+  for(var i = 0; i < 13; i++) {
+    let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+    if (formatDate[1] === '10') {
+      month = 'October'
+    } else if (formatDate[1].includes(0)) {
+      if(`0${i}` === formatDate[1]) {
+        month = months[i - 1]
+      }
+    } else {
+      if (`${i}` === formatDate[1]) {
+        month = months[i - 1]
+      }
+    }
+  }
   return (
-    <section className="movie-details">
-      <h2>{movie.title}</h2>
-      <h3>Average Rating: {movie.average_rating}</h3>
-      <h3>Release Date: {movie.release_date}</h3
-      <p>Summary: {movie.overview}</p>
+    <section className="movie-details" style={ sectionStyle }>
+      <h1 className='movie-title-detail'>{movie.title}</h1>
+      <div className='movie-detail-card'>
+        <img src={movie.poster_path} alt='movie poster' className='movie-poster-detail' />
+        <h2 className='detail-title'>{movie.title}</h2>
+        <h3 className='detail-rating'>Average Rating: {movie.average_rating}</h3>
+        <h3 className='detail-rating'>Your Rating</h3>
+        <h3 className='detail-release'>Release Date: {month} {formatDate[2]}, {formatDate[0]}</h3>
+        <p className='detail-summary'>Overview: {movie.overview}</p>
+      </div>
     </section>
   )
 }
 
 export default MovieDetails;
-
-// {
-//             "id": 22,
-//             "title": "Parasite",
-//             "poster_path": "https://image.tmdb.org/t/p/original//7IiTTgloJzvGI1TAYymCfbfl3vT.jpg",
-//             "backdrop_path": "https://image.tmdb.org/t/p/original//TU9NIjwzjoKPwQHoHshkFcQUCG.jpg",
-//             "release_date": "2019-05-30",
-//             "overview": "All unemployed, Ki-taek's family takes peculiar interest in the wealthy and glamorous Parks for their livelihood until they get entangled in an unexpected incident.",
-//             "average_rating": 4
-//         }

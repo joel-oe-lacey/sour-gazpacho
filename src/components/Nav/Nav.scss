@@ -1,13 +1,14 @@
 .nav {
-  height: 10%;
+  height: 60px;
   width: 100%;
   background-color: #FEB40D;
 }
 
 #blood-splatter {
-  float: right;
+  left: 80%;
   height: 180px;
-  margin-top: -50px;
+  margin-top: -80px;
+  position: absolute;
 }
 
 h1 {
