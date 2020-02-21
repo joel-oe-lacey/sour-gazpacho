@@ -4,11 +4,11 @@ import Nav from '../Nav/Nav';
 import LoadingPage from '../LoadingPage/LoadingPage';
 import Homepage from '../Homepage/Homepage';
 import LoginForm from '../LoginForm/LoginForm';
-import MovieDetails from '../MovieDetails/MovieDetails'
+import MovieDetails from '../MovieDetails/MovieDetails';
 import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import { loadMovies } from '../../actions';
-import { fetchData } from '../../utils/fetchCalls'
+import { fetchData } from '../../utils/fetchCalls';
 
 class App extends Component {
   componentDidMount() {
