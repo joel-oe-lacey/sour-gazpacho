@@ -5,13 +5,13 @@ import MovieCard from '../MovieCard/MovieCard'
 
 const Homepage = ({ allMovies }) => {
   let movieData =  allMovies.map(movie => {
-    return <MovieCard key={movie.id} title={movie.title} averageRating={movie.average_rating} poster={movie.poster_path}/>
+    return <MovieCard key={movie.id} title={movie.title} averageRating={movie.average_rating} poster={movie.poster_path} id={movie.id} />
   })
 
     return (
         <section className="homepage">
           <h1 className='movie-list-title'>Movies by Title</h1>
-          {movieData}
+          <div className='movie-homepage'>{movieData}</div>
         </section>
     )
 }
