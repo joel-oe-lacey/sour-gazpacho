@@ -1,0 +1,54 @@
+.movie-detail-card {
+  background-color: rgba(255, 255, 255, 0.9);
+  border: solid 10px #8E0204;
+  margin: 10px;
+  // height: 500px;
+  width: 70%;
+}
+
+.movie-details {
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  padding-top: 100px;
+  padding-bottom: 200px;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  color: black;
+}
+
+.movie-title-detail {
+  color: #FFF;
+  font-size: 40px;
+  margin-bottom: 50px;
+  width: 70%;
+  background-color: black;
+  background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
+  height: auto;
+  padding: 15px;
+}
+
+.movie-poster-detail {
+  display: block;
+  float: left;
+  height: 480px;
+  margin-right: 20px;
+}
+
+.detail-title {
+  font-size: 45px;
+  margin: 30px;
+}
+
+.detail-rating {
+  font-size: 25px;
+  color: #8E0204;
+}
+
+.detail-release {
+  font-size: 25px;
+  margin: 20px;
+}
