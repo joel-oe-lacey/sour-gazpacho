@@ -1,14 +1,19 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './MovieCard.scss';
+import MovieDetails from '../MovieDetails/MovieDetails'
+
 
 
 const MovieCard = ({ id, title, averageRating, poster }) => {
 
     return (
         <article className="movie-card">
-          <img src={poster} alt='movie poster' className='movie-poster'/>
-          <h3 className='movie-title'>{title}</h3>
-          <h4 className='movie-rating'>AverageRating: {averageRating}</h4>
+          <Link to={`/movies/${id}`}><img src={poster} alt='movie poster' className='movie-poster'/></Link>
+          <div className='movie-info'>
+            <h3 className='movie-title'>{title}</h3>
+            <h4 className='movie-rating'>AverageRating: {averageRating}</h4>
+          </div>
         </article>
     )
 }
