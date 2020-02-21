@@ -45,7 +45,7 @@ class App extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
   loadMoviesToStore: (movies) => { dispatch(loadMovies(movies)) }
 });
 
