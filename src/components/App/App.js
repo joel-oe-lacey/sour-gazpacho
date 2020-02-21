@@ -7,7 +7,7 @@ import LoginForm from '../LoginForm/LoginForm';
 import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import { loadMovies } from '../../actions';
-import { fetchData } from '../../utils/fetchCalls'
+import { fetchData } from '../../utils/fetchCalls';
 
 class App extends Component {
   componentDidMount() {
@@ -36,7 +36,7 @@ class App extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
   loadMoviesToStore: (movies) => { dispatch(loadMovies(movies)) }
 });
 
