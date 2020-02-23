@@ -34,9 +34,10 @@ const MovieDetails = ({ movie }) => {
         <p className='detail-summary'>Overview: {movie.overview}</p>
       </div>
       <div className='detail-btns'>
-        <Link  className='movie-btn' to={`/movies/${movie.id-1}`}>See Previous Movie</Link>
-        <Link  className='movie-btn' to='/'>Go Back to All Movies</Link>
-        <Link  className='movie-btn' to={`/movies/${movie.id+1}`}>See Next Movie</Link>
+        <Link className='movie-btn' to={`/movies/${movie.id-1}`}>See Previous Movie</Link>
+        <Link className='movie-btn' to='/'>Go Back to All Movies</Link>
+        <Link
+         className='movie-btn' to={`/movies/${movie.id+1}`}>See Next Movie</Link>
       </div>
     </section>
   )
