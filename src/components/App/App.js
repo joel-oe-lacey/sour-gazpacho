@@ -10,7 +10,7 @@ import { Route, Switch } from 'react-router-dom';
 import { loadMovies } from '../../actions';
 import { fetchData } from '../../utils/fetchCalls';
 
-class App extends Component {
+export class App extends Component {
   componentDidMount() {
     fetchData('https://rancid-tomatillos.herokuapp.com/api/v1/movies')
       .then(response => response.json())
@@ -36,7 +36,9 @@ class App extends Component {
           const movieData = this.props.movies.find(movie => movie.id === parseInt(match.params.id))
           return (
             <section>
-            <Nav /><MovieDetails movie={movieData} />
+            <Nav />
+            {!this.props.movies.length && <LoadingPage />}
+            {this.props.movies.length && <MovieDetails movie={movieData} />}
             </section>
           )}
         } />
@@ -45,12 +47,12 @@ class App extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   loadMoviesToStore: (movies) => { dispatch(loadMovies(movies)) }
 });
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   movies: state.movies,
-})
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)

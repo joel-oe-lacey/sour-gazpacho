@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { loginUser } from '../../actions';
+import { loginUser, loadUserRatings } from '../../actions';
 import './LoginForm.scss'
 
 //need to edit to create a post request on login
@@ -42,6 +42,9 @@ class LoginForm extends Component {
             .then(data => {
                 data.error && this.setState({error: data.error})
                 if(data.user) {
+                    fetch(`https://rancid-tomatillos.herokuapp.com/api/v1/users/${data.user.id}/ratings`)
+                        .then(response => response.json())
+                        .then(ratingData => this.props.addUserRatingsToStore(ratingData.ratings))
                     this.props.addUserToStore(data.user) 
                     this.setState({ auth: true })
                 }
@@ -84,7 +87,8 @@ class LoginForm extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    addUserToStore: (user) => { dispatch(loginUser(user)) }
+    addUserToStore: (user) => { dispatch(loginUser(user)) },
+    addUserRatingsToStore: (ratings) => { dispatch(loadUserRatings(ratings)) }
 })
 
 export default connect(null, mapDispatchToProps)(LoginForm);
