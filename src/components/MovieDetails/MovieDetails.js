@@ -8,7 +8,7 @@ class MovieDetails extends Component{
   constructor() {
     super()
     this.state = {
-      rating: 0
+      userRating: 0
     }
   }
 
@@ -21,22 +21,28 @@ class MovieDetails extends Component{
         body: JSON.stringify({ movie_id: this.props.movie.id, rating: parseInt(rating) }),
     }
     fetchData(`https://rancid-tomatillos.herokuapp.com/api/v1/users/${this.props.userId}/ratings`, options)
+      .then(response => response.json())
+      .then(rating => this.props.ratings.push(rating.rating))
+      .then(data => this.setState({ userRating: data }))
   }
 
   removeRating = (ratings, movie, userId) => {
-    let movieData = ratings.find(rating => rating.movie_id === movie.id)
+    let ratingToRemove = ratings.find(rating => rating.movie_id === movie.id)
+    let ratingIndex = ratings.indexOf(ratingToRemove)
+
     const options = {
         method: "DELETE",
         headers: {
             'Content-Type': 'application/json'
         },
     }
-    fetchData(`https://rancid-tomatillos.herokuapp.com/api/v1/users/${parseInt(userId)}/ratings/${movieData.id}`, options)
+    fetchData(`https://rancid-tomatillos.herokuapp.com/api/v1/users/${parseInt(userId)}/ratings/${ratingToRemove.id}`, options)
+      .then(() => ratings.splice(ratingIndex, 1))
+      .then(() => this.setState({ userRating: 0 }))
   }
 
   render() {
     let { movie, userId, ratings } = this.props;
-
     let month;
     const sectionStyle = {
       backgroundImage: `url(${movie.backdrop_path})`
