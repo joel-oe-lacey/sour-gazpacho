@@ -36,7 +36,9 @@ export class App extends Component {
           const movieData = this.props.movies.find(movie => movie.id === parseInt(match.params.id))
           return (
             <section>
-            <Nav /><MovieDetails movie={movieData} />
+            <Nav />
+            {!this.props.movies.length && <LoadingPage />}
+            {this.props.movies.length && <MovieDetails movie={movieData} />}
             </section>
           )}
         } />
@@ -51,6 +53,6 @@ export const mapDispatchToProps = dispatch => ({
 
 export const mapStateToProps = state => ({
   movies: state.movies,
-})
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
