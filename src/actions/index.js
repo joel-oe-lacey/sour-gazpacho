@@ -12,3 +12,8 @@ export const logOut = () => ({
     type: 'LOG_OUT',
     user: {}
 })
+
+export const loadUserRatings = (ratings) => ({
+    type: 'LOAD_RATINGS',
+    ratings
+})
