@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Nav Nav Component should be an instance of Nav 1`] = `
+<nav
+  className="nav"
+>
+  <Link
+    to="/"
+  >
+    <button
+      onClick={[MockFunction]}
+    >
+      Log Out
+    </button>
+  </Link>
+  <h1>
+    Sour Gazpacho
+  </h1>
+  <img
+    alt="kill bill style blood splatter"
+    id="blood-splatter"
+    src="blood-splatter.png"
+  />
+</nav>
+`;
