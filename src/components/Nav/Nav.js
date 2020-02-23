@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { logOut } from '../../actions';
 import bloodSplatter from '../../assets/blood-splatter.png';
 
-const Nav = ({ user, logOutFromStore }) => {
+export const Nav = ({ user, logOutFromStore }) => {
     return (
         <nav className="nav">
             {
@@ -17,11 +17,11 @@ const Nav = ({ user, logOutFromStore }) => {
     )
 }
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
     user: state.user
 })
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
     logOutFromStore: () => { dispatch(logOut()) }
 })
 
