@@ -1,6 +1,6 @@
-export const loadMovies = (movies) => ({ 
+export const loadMovies = (movies) => ({
     type: 'LOAD_MOVIES',
-    movies 
+    movies
 });
 
 export const loginUser = (user) => ({

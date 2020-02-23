@@ -4,15 +4,28 @@ exports[`Homepage should match a snapshot as expected 1`] = `
 <section
   className="homepage"
 >
-  <MovieCard
-    averageRating={7}
-    key="21"
-    title="Sonic the Hedgehog"
-  />
-  <MovieCard
-    averageRating={4}
-    key="22"
-    title="Parasite"
-  />
+  <h1
+    className="movie-list-title"
+  >
+    Movies by Title
+  </h1>
+  <div
+    className="movie-homepage"
+  >
+    <MovieCard
+      averageRating={7}
+      id={21}
+      key="21"
+      poster="https://image.tmdb.org/t/p/original//aQvJ5WPzZgYVDrxLX4R6cLJCEaQ.jpg"
+      title="Sonic the Hedgehog"
+    />
+    <MovieCard
+      averageRating={4}
+      id={22}
+      key="22"
+      poster="https://image.tmdb.org/t/p/original//7IiTTgloJzvGI1TAYymCfbfl3vT.jpg"
+      title="Parasite"
+    />
+  </div>
 </section>
 `;

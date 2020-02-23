@@ -14,6 +14,7 @@ const MovieCard = ({ id, title, userRating, averageRating, poster }) => {
             {userRating && <h4 className='movie-rating'>Your Rating: {averageRating}</h4>}
             <h4 className='movie-rating'>AverageRating: {averageRating}</h4>
           </div>
+        </article>
     )
 }
 
