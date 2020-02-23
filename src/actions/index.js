@@ -17,3 +17,8 @@ export const loadUserRatings = (ratings) => ({
     type: 'LOAD_RATINGS',
     ratings
 })
+
+export const addUserRating = rating => ({
+    type: 'ADD_RATING',
+    rating
+})
