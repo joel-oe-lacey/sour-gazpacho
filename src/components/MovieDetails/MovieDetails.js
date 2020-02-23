@@ -1,8 +1,9 @@
 import React from 'react';
 import './MovieDetails.scss';
+import { connect } from 'react-redux';
 
 
-const MovieDetails = ({ movie }) => {
+const MovieDetails = ({ movie, userId, ratings }) => {
   let month;
   const sectionStyle = {
     backgroundImage: `url(${movie.backdrop_path})`
@@ -22,14 +23,17 @@ const MovieDetails = ({ movie }) => {
       }
     }
   }
+
+  const mapRating = ratings.find(rating => rating.movie_id === movie.id)
+
   return (
     <section className="movie-details" style={ sectionStyle }>
       <h1 className='movie-title-detail'>{movie.title}</h1>
       <div className='movie-detail-card'>
         <img src={movie.poster_path} alt='movie poster' className='movie-poster-detail' />
         <h2 className='detail-title'>{movie.title}</h2>
-        <h3 className='detail-rating'>Average Rating: {movie.average_rating}</h3>
-        <h3 className='detail-rating'>Your Rating</h3>
+        <h3 className='detail-rating'>Average Rating: {Math.floor(movie.average_rating)}</h3>
+        {mapRating && <h3 className='detail-rating'>{`Your Rating: ${mapRating.rating}`}</h3>}
         <h3 className='detail-release'>Release Date: {month} {formatDate[2]}, {formatDate[0]}</h3>
         <p className='detail-summary'>Overview: {movie.overview}</p>
       </div>
@@ -37,4 +41,9 @@ const MovieDetails = ({ movie }) => {
   )
 }
 
-export default MovieDetails;
+const mapStateToProps = state => ({
+  userId: state.user.id,
+  ratings: state.ratings
+})
+
+export default connect(mapStateToProps)(MovieDetails);
