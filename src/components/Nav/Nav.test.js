@@ -22,7 +22,6 @@ describe('Nav', () => {
     it('should be an instance of Nav', () => {
       expect(wrapper).toMatchSnapshot();
     })
-    
 
   })
   describe('mapStateToProps', () => {
