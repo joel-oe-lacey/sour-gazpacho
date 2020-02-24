@@ -61,6 +61,7 @@ exports[`MovieDetails should be an instance of movieDetails 1`] = `
     </Link>
     <Link
       className="movie-btn"
+      id="mid-btn"
       to="/"
     >
       Go Back to All Movies

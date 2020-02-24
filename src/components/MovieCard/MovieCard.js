@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './MovieCard.scss';
-import MovieDetails from '../MovieDetails/MovieDetails'
-
 
 
 const MovieCard = ({ id, title, userRating, averageRating, poster }) => {
