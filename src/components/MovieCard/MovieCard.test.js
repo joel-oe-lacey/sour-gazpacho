@@ -1,5 +1,5 @@
 import React from 'react';
-import MovieCard from './MovieCard.js'
+import MovieCard from './MovieCard.js';
 import { shallow } from 'enzyme';
 
 describe('MovieCard', () => {
