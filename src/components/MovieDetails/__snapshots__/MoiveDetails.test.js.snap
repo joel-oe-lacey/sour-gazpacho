@@ -34,11 +34,6 @@ exports[`MovieDetails should be an instance of movieDetails 1`] = `
       5
     </h3>
     <h3
-      className="detail-rating"
-    >
-      Your Rating
-    </h3>
-    <h3
       className="detail-release"
     >
       Release Date: 

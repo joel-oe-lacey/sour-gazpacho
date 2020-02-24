@@ -5,7 +5,7 @@ import { render } from 'enzyme';
 import { fetchData } from '../../utils/fetchCalls'
 import { Link } from 'react-router-dom';
 
-class MovieDetails extends Component{
+export class MovieDetails extends Component{
   constructor() {
     super()
     this.state = {
@@ -63,9 +63,8 @@ class MovieDetails extends Component{
         }
       }
     }
-
     const mapRating = ratings.find(rating => rating.movie_id === movie.id)
-
+    console.log(movie);
     return (
       <section className="movie-details" style={ sectionStyle }>
         <h1 className='movie-title-detail'>{movie.title}</h1>
@@ -96,10 +95,9 @@ class MovieDetails extends Component{
           <p className='detail-summary'>Overview: {movie.overview}</p>
         </div>
        <div className='detail-btns'>
-        <Link className='movie-btn' to={`/movies/${movie.id-1}`}>See Previous Movie</Link>
-        <Link className='movie-btn' to='/'>Go Back to All Movies</Link>
-        <Link
-         className='movie-btn' to={`/movies/${movie.id+1}`}>See Next Movie</Link>
+        {movie.id === 21 ? <Link className='movie-btn hidden'></Link>  : <Link className='movie-btn' to={`/movies/${movie.id-1}`}>See Previous Movie</Link>}
+        <Link className='movie-btn' id='mid-btn' to='/'>Go Back to All Movies</Link>
+        {movie.id === 40 ? <Link className='movie-btn hidden'></Link> : <Link className='movie-btn' to={`/movies/${movie.id === 35 ? movie.id : movie.id+1}`}>See Next Movie</Link>}
       </div>
       </section>
     )
@@ -110,10 +108,7 @@ class MovieDetails extends Component{
 //post returns rating, add that rating into store via dispatch
 //does component need to be stateful?
 
-
-
-
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   userId: state.user.id,
   ratings: state.ratings
 })
