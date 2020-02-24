@@ -30,4 +30,22 @@ let mockRatings = [
    expect(wrapper).toMatchSnapshot();
  })
 
+ describe('mapStateToProps', () => {
+    it('should return an object with a userId and ratings', () => {
+      const mockState = {
+        movies: [{id: 1, name: 'Parasite'}, {id: 2, name: 'Sonic'}, {id: 3, name: 'Charlies Angels'}],
+        user: { id: 21, name: 'Lucy' },
+        ratings: [
+             { id: 826, user_id: 21, movie_id: 23, rating: 8 },
+             { id: 827, user_id: 21, movie_id: 22, rating: 5 }
+           ]
+      }
+      const expected = {
+        userId: 21,
+        ratings: mockRatings
+      }
+      const mappedProps = mapStateToProps( mockState );
+      expect(mappedProps).toEqual(expected)
+    })
+  })
 })
