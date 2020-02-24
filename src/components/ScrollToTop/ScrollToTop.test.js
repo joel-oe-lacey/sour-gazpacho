@@ -22,3 +22,12 @@ describe('ScrollToTop', () => {
   it('should match snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   })
+
+  it('should scroll to top if route pathname changes', () => {
+    global.scrollTo = jest.fn();
+    expect(global.scrollTo).not.toHaveBeenCalled();
+    history.push('/new-url');
+    expect(global.scrollTo).toHaveBeenCalledWith(0, 0);
+  })
+
+})
