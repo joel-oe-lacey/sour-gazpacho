@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { loginUser, loadUserRatings } from '../../actions';
 import './LoginForm.scss'
+import { fetchData } from '../../utils/fetchCalls';
 
 //need to edit to create a post request on login
 //if successful proceed and post via dispatch 
@@ -11,7 +12,7 @@ import './LoginForm.scss'
 
 //set up tests for login also. 
 
-class LoginForm extends Component {
+export class LoginForm extends Component {
     constructor() {
         super()
         this.state = {
@@ -34,20 +35,23 @@ class LoginForm extends Component {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ email, password }),
+            body: JSON.stringify({ email, password })
         }
 
-        fetch('https://rancid-tomatillos.herokuapp.com/api/v1/login', options)
+        fetchData('https://rancid-tomatillos.herokuapp.com/api/v1/login', options)
             .then(response => response.json())
             .then(data => {
-                data.error && this.setState({error: data.error})
                 if(data.user) {
-                    fetch(`https://rancid-tomatillos.herokuapp.com/api/v1/users/${data.user.id}/ratings`)
+                    fetchData(`https://rancid-tomatillos.herokuapp.com/api/v1/users/${data.user.id}/ratings`)
                         .then(response => response.json())
                         .then(ratingData => this.props.addUserRatingsToStore(ratingData.ratings))
                     this.props.addUserToStore(data.user) 
                     this.setState({ auth: true })
                 }
+            })
+            .catch(error => {
+                console.log('hit catch')
+                this.setState({ error: "Invalid Login" })
             })
     }
 
@@ -86,7 +90,7 @@ class LoginForm extends Component {
     }
 }
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
     addUserToStore: (user) => { dispatch(loginUser(user)) },
     addUserRatingsToStore: (ratings) => { dispatch(loadUserRatings(ratings)) }
 })
