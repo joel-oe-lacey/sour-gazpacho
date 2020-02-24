@@ -3,6 +3,7 @@ import './MovieDetails.scss';
 import { connect } from 'react-redux';
 import { render } from 'enzyme';
 import { fetchData } from '../../utils/fetchCalls'
+import { Link } from 'react-router-dom';
 
 class MovieDetails extends Component{
   constructor() {
@@ -94,6 +95,12 @@ class MovieDetails extends Component{
           <h3 className='detail-release'>Release Date: {month} {formatDate[2]}, {formatDate[0]}</h3>
           <p className='detail-summary'>Overview: {movie.overview}</p>
         </div>
+       <div className='detail-btns'>
+        <Link className='movie-btn' to={`/movies/${movie.id-1}`}>See Previous Movie</Link>
+        <Link className='movie-btn' to='/'>Go Back to All Movies</Link>
+        <Link
+         className='movie-btn' to={`/movies/${movie.id+1}`}>See Next Movie</Link>
+      </div>
       </section>
     )
   }
@@ -102,6 +109,8 @@ class MovieDetails extends Component{
 //make a post on rating
 //post returns rating, add that rating into store via dispatch
 //does component need to be stateful?
+
+
 
 
 const mapStateToProps = state => ({
