@@ -1,5 +1,5 @@
 import React from 'react';
-import MovieDetails from './MovieDetails.js'
+import { MovieDetails, mapStateToProps } from './MovieDetails.js';
 import { shallow } from 'enzyme';
 
 describe('MovieDetails', () => {
