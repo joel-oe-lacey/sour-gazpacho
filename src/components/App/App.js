@@ -4,6 +4,7 @@ import Nav from '../Nav/Nav';
 import LoadingPage from '../LoadingPage/LoadingPage';
 import Homepage from '../Homepage/Homepage';
 import LoginForm from '../LoginForm/LoginForm';
+import BadPathPage from '../BadPathPage/BadPathPage';
 import MovieDetails from '../MovieDetails/MovieDetails';
 import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
@@ -22,6 +23,7 @@ export class App extends Component {
   render() {
     return (
       <div className="app">
+      <Switch>
         <Route exact path="/login" component={LoginForm} />
         <Route exact path='/' render={() => {
           return (
@@ -42,6 +44,8 @@ export class App extends Component {
             </section>
           )}
         } />
+        <BadPathPage />
+      </Switch>
       </div>
     )
   }
