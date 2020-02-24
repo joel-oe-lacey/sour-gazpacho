@@ -65,6 +65,7 @@ export class MovieDetails extends Component{
     }
 
     const mapRating = ratings.find(rating => rating.movie_id === movie.id)
+    console.log();
     return (
       <section className="movie-details" style={ sectionStyle }>
         <h1 className='movie-title-detail'>{movie.title}</h1>
@@ -109,18 +110,9 @@ export class MovieDetails extends Component{
 //post returns rating, add that rating into store via dispatch
 //does component need to be stateful?
 
-
-
-
-// export const mapStateToProps = state => ({
-//   userId: state.user.id,
-//   ratings: state.ratings
-// })
-
-export const mapStateToProps = state => {
-  // console.log(state);
-  return {userId: state.user.id,
-  ratings: state.ratings}
-}
+export const mapStateToProps = state => ({
+  userId: state.user.id,
+  ratings: state.ratings
+})
 
 export default connect(mapStateToProps)(MovieDetails);
