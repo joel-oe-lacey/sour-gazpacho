@@ -13,10 +13,16 @@ let mockMovie = {
   overview: 'All unemployed, Ki-taek\'s family takes peculiar interest in the wealthy and glamorous Parks for their livelihood until they get entangled in an unexpected incident.',
   average_rating: 5
 }
+let mockRatings = [
+     { id: 826, user_id: 21, movie_id: 23, rating: 8 },
+     { id: 827, user_id: 21, movie_id: 22, rating: 5 }
+   ]
 
   beforeEach(() => {
     wrapper = shallow(<MovieDetails
         movie={mockMovie}
+        ratings={mockRatings}
+        // double check with Eric
       />)
   })
 
