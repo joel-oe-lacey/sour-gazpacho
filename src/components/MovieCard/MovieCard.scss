@@ -4,6 +4,7 @@
   border: solid 5px #8E0204;
   margin: 10px;
   color: rgba(0,0,0,0);
+  position: relative;
 }
 
 .movie-poster {
@@ -15,6 +16,18 @@
 
 .movie-card:hover {
   color: #FFF;
+
+  .movie-title,
+  .movie-rating {
+    background-color: black;
+    background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
+  }
+}
+
+.movie-info {
+  height: 400px;
+  width: 300px;
+  position: absolute;
 }
 
 .movie-title {
@@ -22,11 +35,9 @@
   z-index: 10;
   width: 300px;
   margin-top: -100px;
-  background-color: #8E0204;
 }
 
 .movie-rating {
   text-align: center;
   z-index: 10;
-  background-color: #8E0204;
 }

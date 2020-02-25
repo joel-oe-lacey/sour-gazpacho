@@ -10,7 +10,7 @@ export const Nav = ({ user, logOutFromStore }) => {
     return (
         <nav className="nav">
             {
-                user.id ? <Link to="/"><button onClick={logOutFromStore}>Log Out</button></Link> : <Link to="/login"><button>Login</button></Link>
+                user.id ? <Link to="/" className="nav-link" onClick={logOutFromStore}>Log Out</Link> : <Link to="/login" className="nav-link" onClick={logOutFromStore}>Login</Link>
             }
             <h1>Sour Gazpacho</h1>
             <img src={bloodSplatter} alt='kill bill style blood splatter' id='blood-splatter'/>
