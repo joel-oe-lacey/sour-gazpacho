@@ -1,0 +1,72 @@
+.center-card {
+  width: 440px;
+  height: 540px;
+  margin: 20px;
+  color: rgba(0,0,0,0);
+  display: flex;
+  flex-direction: row;
+  margin-left: -100px;
+}
+
+.center-reflection {
+  display: flex;
+  flex-direction: column;
+}
+
+.center-poster {
+  border: solid 5px #8E0204;
+  margin-top: 20px;
+  height: 500px;
+  width: 400px;
+  object-fit: cover;
+  z-index: 10;
+  transform: perspective(500px) rotateY(10deg);
+}
+
+.center-reflection {
+  border: solid 5px #8E0204;
+  object-fit: cover;
+  height: 500px;
+  width: 403px;
+  transform: scale(1,-1) perspective(500px) rotateY(-10deg);
+  opacity: 0.3;
+  margin-top: 10px;
+  margin-left: -30px;
+  mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 25%);
+}
+
+.text-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.center-text {
+  color: #FFF;
+  font-size: 20px;
+  width: 500px;
+  margin-left: 30px;
+}
+
+#center-title {
+  font-size: 60px;
+  margin-bottom: 50px;
+  margin-top: 50px;
+}
+
+#center-rating {
+  color: #8E0204;
+  font-size: 30px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+#center-date {
+  font-size: 30px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+#center-overview {
+  font-size: 20px;
+
+}
