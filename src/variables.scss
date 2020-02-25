@@ -6,8 +6,12 @@ $primary-yellow-color: #FEB40D;
 
 //create a flex mixin
 //a mixin for center alignment
+@mixin centerAlign($font-sz, $mgn) {
+    font-size: $font-sz;
+    margin-top: $mgn;
+    margin-bottom: $mgn;
+}
 
-//a mixin for login styles 
 @mixin roundedStyling($radiusAmt) {
     border-bottom-right-radius: 5% $radiusAmt;
     border-top-right-radius: 5% $radiusAmt;
