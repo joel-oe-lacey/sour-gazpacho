@@ -9,15 +9,26 @@ exports[`Homepage should match a snapshot as expected 1`] = `
   >
     <CenterMovie
       movie={
-        Object {
-          "average_rating": 7,
-          "backdrop_path": "https://image.tmdb.org/t/p/original//tCUcf3oNWMW8kwAj3WC6CvIN5ah.jpg",
-          "id": 21,
-          "overview": "Based on the global blockbuster videogame franchise from Sega, Sonic the Hedgehog tells the story of the world’s speediest hedgehog as he embraces his new home on Earth. In this live-action adventure comedy, Sonic and his new best friend team up to defend the planet from the evil genius Dr. Robotnik and his plans for world domination.",
-          "poster_path": "https://image.tmdb.org/t/p/original//aQvJ5WPzZgYVDrxLX4R6cLJCEaQ.jpg",
-          "release_date": "2020-02-12",
-          "title": "Sonic the Hedgehog",
-        }
+        Array [
+          Object {
+            "average_rating": 7,
+            "backdrop_path": "https://image.tmdb.org/t/p/original//tCUcf3oNWMW8kwAj3WC6CvIN5ah.jpg",
+            "id": 21,
+            "overview": "Based on the global blockbuster videogame franchise from Sega, Sonic the Hedgehog tells the story of the world’s speediest hedgehog as he embraces his new home on Earth. In this live-action adventure comedy, Sonic and his new best friend team up to defend the planet from the evil genius Dr. Robotnik and his plans for world domination.",
+            "poster_path": "https://image.tmdb.org/t/p/original//aQvJ5WPzZgYVDrxLX4R6cLJCEaQ.jpg",
+            "release_date": "2020-02-12",
+            "title": "Sonic the Hedgehog",
+          },
+          Object {
+            "average_rating": 4,
+            "backdrop_path": "https://image.tmdb.org/t/p/original//TU9NIjwzjoKPwQHoHshkFcQUCG.jpg",
+            "id": 22,
+            "overview": "All unemployed, Ki-taek's family takes peculiar interest in the wealthy and glamorous Parks for their livelihood until they get entangled in an unexpected incident.",
+            "poster_path": "https://image.tmdb.org/t/p/original//7IiTTgloJzvGI1TAYymCfbfl3vT.jpg",
+            "release_date": "2019-05-30",
+            "title": "Parasite",
+          },
+        ]
       }
     />
   </div>
@@ -29,14 +40,14 @@ exports[`Homepage should match a snapshot as expected 1`] = `
   <div
     className="movie-homepage"
   >
-    <MovieCard
+    <Connect(MovieCard)
       averageRating={7}
       id={21}
       key="21"
       poster="https://image.tmdb.org/t/p/original//aQvJ5WPzZgYVDrxLX4R6cLJCEaQ.jpg"
       title="Sonic the Hedgehog"
     />
-    <MovieCard
+    <Connect(MovieCard)
       averageRating={4}
       id={22}
       key="22"
