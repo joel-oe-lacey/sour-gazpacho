@@ -3,6 +3,7 @@ import './Homepage.scss';
 import MovieCard from '../MovieCard/MovieCard';
 import CenterMovie from '../CenterMovie/CenterMovie';
 import PropTypes from 'prop-types';
+import biscuits from '../../assets/biscuits.png';
 
 
 const Homepage = ({ allMovies }) => {
@@ -16,6 +17,7 @@ const Homepage = ({ allMovies }) => {
           <div className='movie-centerpiece'>{centerMovie}</div>
           <h1 className='movie-list-title'>All Movies</h1>
           <div className='movie-homepage'>{movieData}</div>
+          <img className='biscuits' src={ biscuits } />
         </section>
     )
 }
