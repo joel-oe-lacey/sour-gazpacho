@@ -30,3 +30,12 @@ Jest and Enzyme for Testing Suite <br />
 Some of the challenges faced with this project include using the Redux store with React. Setting up the global data store, deciding what needed to be sent to the store, and which components would need to talk to the store. Extensive testing was also done to ensure accuracy of the functions created.
 
 ### Future Iterations
+
+Adding movie trailers to Movie Details <br />
+A user page where they can see all the movies they have rated <br />
+Ability to sort mivies by title, release date, or rating <br />
+
+### Group Members
+John Cassidy [http://github.com/pJanks](github.com/pJanks)
+Joel Lacey [http://github.com/joel-oe-lacey](github.com/joel-oe-lacey)
+Virginia Ladd [http://github.com/vladd-png](github.com/vladd-png)
