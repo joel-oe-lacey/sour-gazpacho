@@ -55,5 +55,9 @@ exports[`Homepage should match a snapshot as expected 1`] = `
       title="Parasite"
     />
   </div>
+  <img
+    className="biscuits"
+    src="biscuits.png"
+  />
 </section>
 `;
