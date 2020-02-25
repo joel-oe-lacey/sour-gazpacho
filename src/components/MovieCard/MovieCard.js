@@ -2,8 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './MovieCard.scss';
+import PropTypes from 'prop-types';
 
-const MovieCard = ({ id, title, averageRating, poster, userRating }) => {
+
+export const MovieCard = ({ id, title, averageRating, poster, userRating }) => {
     const mapRating = userRating.find(rating => rating.movie_id === id)
 
     return (
@@ -23,3 +25,10 @@ export const mapStateToProps = state => ({
 })
 
 export default connect(mapStateToProps)(MovieCard);
+PropTypes.propTypes = {
+  id: PropTypes.number,
+  title: PropTypes.string,
+  userRating: PropTypes.string,
+  averageRating: PropTypes.string,
+  poster: PropTypes.string
+}

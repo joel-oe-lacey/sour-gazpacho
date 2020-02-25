@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logOut } from '../../actions';
 import bloodSplatter from '../../assets/blood-splatter.png';
+import PropTypes from 'prop-types'
 
 export const Nav = ({ user, logOutFromStore }) => {
     return (
@@ -24,5 +25,10 @@ export const mapStateToProps = state => ({
 export const mapDispatchToProps = dispatch => ({
     logOutFromStore: () => { dispatch(logOut()) }
 })
+
+Nav.propTypes = {
+  user: PropTypes.object,
+  logOutFromStore: PropTypes.func
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Nav);
