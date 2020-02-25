@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Homepage.scss';
 import MovieCard from '../MovieCard/MovieCard';
 import CenterMovie from '../CenterMovie/CenterMovie';
@@ -8,8 +8,8 @@ const Homepage = ({ allMovies }) => {
   let movieData =  allMovies.map(movie => {
     return <MovieCard key={movie.id} title={movie.title} averageRating={movie.average_rating} poster={movie.poster_path} id={movie.id} />
   })
-  let randomNum = Math.floor(Math.random() * 20)
-  let centerMovie = <CenterMovie movie={allMovies[randomNum]}/>
+
+  let centerMovie = <CenterMovie movie={allMovies}/>
     return (
         <section className="homepage">
           <div className='movie-centerpiece'>{centerMovie}</div>
