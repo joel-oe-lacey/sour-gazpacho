@@ -5,13 +5,11 @@ exports[`Nav Nav Component should be an instance of Nav 1`] = `
   className="nav"
 >
   <Link
+    className="nav-link"
+    onClick={[MockFunction]}
     to="/"
   >
-    <button
-      onClick={[MockFunction]}
-    >
-      Log Out
-    </button>
+    Log Out
   </Link>
   <h1>
     Sour Gazpacho
