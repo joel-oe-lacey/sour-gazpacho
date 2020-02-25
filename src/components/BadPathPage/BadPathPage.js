@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 
 const BadPathPage = () => {
-
     return (
       <main>
         <Link to="/"><button>Homepage</button></Link>
