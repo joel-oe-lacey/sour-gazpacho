@@ -56,4 +56,45 @@ describe('actions', () => {
 
     expect(result).toEqual(expectedAction);
   });
+
+  it('should have a type of REMOVE_RATING', () => {
+    const ratings =  [
+         { id: 826, user_id: 21, movie_id: 23, rating: 8 },
+         { id: 827, user_id: 21, movie_id: 22, rating: 5 }
+       ]
+    const result = actions.updateStore(ratings)
+    const expectedAction = {
+      type: 'REMOVE_RATING',
+      ratings
+    }
+
+    expect(result).toEqual(expectedAction);
+  });
+
+  it('should have a type of LOAD_RATINGS', () => {
+    const ratings =  [
+         { id: 826, user_id: 21, movie_id: 23, rating: 8 },
+         { id: 827, user_id: 21, movie_id: 22, rating: 5 }
+       ]
+    const result = actions.loadUserRatings(ratings)
+    const expectedAction = {
+      type: 'LOAD_RATINGS',
+      ratings
+    }
+
+    expect(result).toEqual(expectedAction);
+  });
+
+  it('should have a type of ADD_RATING', () => {
+    const rating =  [
+         { id: 827, user_id: 21, movie_id: 22, rating: 5 }
+       ]
+    const result = actions.addUserRating(rating)
+    const expectedAction = {
+      type: 'ADD_RATING',
+      rating
+    }
+
+    expect(result).toEqual(expectedAction);
+  });
 });
