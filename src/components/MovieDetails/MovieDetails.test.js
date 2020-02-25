@@ -1,6 +1,8 @@
 import React from 'react';
-import { MovieDetails, mapStateToProps, addRating, removeRating } from './MovieDetails.js';
+import { MovieDetails, mapStateToProps, mapDispatchToProps, addRating, removeRating } from './MovieDetails.js';
 import { shallow } from 'enzyme';
+import { updateStore, addUserRating } from '../../actions';
+
 
 describe('MovieDetails', () => {
 let wrapper, instance, mockRating, mockOptions, mockResponse, mockProps;
@@ -186,5 +188,28 @@ let mockRatings = [
       instance.removeRating(instance.props.ratings, instance.props.movie, instance.props.userId);
       expect(wrapper.state('userRating')).toEqual(0)
     })
+  })
+
+  describe('mapDispatchToProps', () => {
+    it('should call dispatch with the updateStore action when updateRatingsInStore is called', () => {
+      const mockDispatch = jest.fn();
+      let mockRatings = [
+           { id: 826, user_id: 21, movie_id: 23, rating: 8 },
+           { id: 827, user_id: 21, movie_id: 22, rating: 5 }
+         ]
+      const actionToDispatch = updateStore(mockRatings)
+      const mappedProps = mapDispatchToProps(mockDispatch)
+      mappedProps.updateRatingsInStore(mockRatings)
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
+    })
+  })
+
+  it('should call dispatch with the addUserRating action when addRatingToStore is called', () => {
+    const mockDispatch = jest.fn();
+    let mockRating = { id: 827, user_id: 21, movie_id: 22, rating: 5 }
+    const actionToDispatch = addUserRating(mockRatings)
+    const mappedProps = mapDispatchToProps(mockDispatch)
+    mappedProps.addRatingToStore(mockRatings)
+    expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
   })
 })
