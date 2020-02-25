@@ -97,7 +97,7 @@ export class MovieDetails extends Component{
        <div className='detail-btns'>
         {movie.id === 21 ? <Link className='movie-btn hidden'></Link>  : <Link className='movie-btn' to={`/movies/${movie.id-1}`}>See Previous Movie</Link>}
         <Link className='movie-btn' id='mid-btn' to='/'>Go Back to All Movies</Link>
-        {movie.id === 40 ? <Link className='movie-btn hidden'></Link> : <Link className='movie-btn' to={`/movies/${movie.id === 35 ? movie.id : movie.id+1}`}>See Next Movie</Link>}
+        {movie.id === 40 ? <Link className='movie-btn hidden'></Link> : <Link className='movie-btn' to={`/movies/${movie.id+1}`}>See Next Movie</Link>}
       </div>
       </section>
     )
