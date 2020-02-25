@@ -3,7 +3,7 @@ import { MovieDetails, mapStateToProps, addRating, removeRating } from './MovieD
 import { shallow } from 'enzyme';
 
 describe('MovieDetails', () => {
-let wrapper, instance, mockRating, mockOptions, mockResponse;
+let wrapper, instance, mockRating, mockOptions, mockResponse, mockProps;
 
 let mockMovie = {
   id: 22,
@@ -25,8 +25,6 @@ let mockRatings = [
         ratings={mockRatings}
         // double check with Eric
       />)
-    instance = wrapper.instance()
-
   })
 
   it('should be an instance of movieDetails', () => {
@@ -52,11 +50,11 @@ let mockRatings = [
     })
   })
 
-  describe('addIdea', () => {
+  describe('class methods', () => {
 
     beforeEach(() => {
       mockRating = '5'
-      instance.props = {
+      mockProps = {
         movie: {
           id: 21,
           title: "Sonic the Hedgehog",
@@ -67,7 +65,15 @@ let mockRatings = [
           average_rating: 7.333333333333333,
         },
         userId: 21,
-        ratings: [{
+        ratings: [
+        {
+          id: 826,
+          user_id: 21,
+          movie_id: 21,
+          rating: 8,
+          created_at: "2020-02-23T22:01:31.515Z",
+          updated_at: "2020-02-23T22:01:31.515Z"
+        }, {
           id: 881,
           user_id: 21,
           movie_id: 25,
@@ -84,6 +90,10 @@ let mockRatings = [
           updated_at: "2020-02-24T06:23:01.718Z"
         }]
       }
+    wrapper = shallow(<MovieDetails
+      {...mockProps}
+      />)
+      instance = wrapper.instance()
       mockOptions = {
         method: "POST",
         headers: {
@@ -100,18 +110,81 @@ let mockRatings = [
       })
     })
 
+    describe('addRating', () => {
+
+      it('should call fetch with the correct url', () => {
+        instance.addRating(mockRating);
+        expect(window.fetch).toHaveBeenCalledWith(`https://rancid-tomatillos.herokuapp.com/api/v1/users/${instance.props.userId}/ratings`, mockOptions);
+        });
+
+      it('should call setRating', () => {
+        let mockSetRating = jest.fn()
+        const instance = wrapper.instance();
+        instance.addRating = jest.fn().mockImplementation(() => mockSetRating())
+        let spy = jest.spyOn(instance, 'addRating')
+        instance.addRating();
+        expect(mockSetRating).toHaveBeenCalled();
+        })
+      })
+
+    describe('setRating', () => {
+      it('should update state', () => {
+        expect(wrapper.state('userRating')).toEqual(0)
+        instance.setRating(mockResponse)
+        expect(wrapper.state('userRating')).toEqual(5)
+      })
+    })
+
+    it('should update the ratings array when called', () => {
+      const expected = [ {
+        id: 826,
+        user_id: 21,
+        movie_id: 21,
+        rating: 8,
+        created_at: "2020-02-23T22:01:31.515Z",
+        updated_at: "2020-02-23T22:01:31.515Z"
+      }, {
+        id: 881,
+        user_id: 21,
+        movie_id: 25,
+        rating: 6,
+        created_at: "2020-02-24T06:21:04.738Z",
+        updated_at: "2020-02-24T06:21:04.738Z"
+
+      }, {
+        id: 883,
+        user_id: 21,
+        movie_id: 22,
+        rating: 4,
+        created_at: "2020-02-24T06:23:01.718Z",
+        updated_at: "2020-02-24T06:23:01.718Z"
+      },
+      { user_id: 21, movie_id: 19, rating: 5 } ]
+      instance.setRating(mockResponse)
+      expect(instance.props.ratings).toEqual(expected)
+    })
+  })
+
+  describe('removeRating', () => {
     it('should call fetch with the correct url', () => {
-      instance.addRating(mockRating);
-      expect(window.fetch).toHaveBeenCalledWith(`https://rancid-tomatillos.herokuapp.com/api/v1/users/${instance.props.userId}/ratings`, mockOptions);
-    });
+      const mockDeleteOptions = {
+        method: "DELETE",
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      }
+      const mockRatingToRemove = instance.props.ratings[0]
+      instance.removeRating(instance.props.ratings, instance.props.movie, instance.props.userId);
+      expect(window.fetch).toHaveBeenCalledWith(`https://rancid-tomatillos.herokuapp.com/api/v1/users/${parseInt(instance.props.userId)}/ratings/${mockRatingToRemove.id}`, mockDeleteOptions);
+      });
 
-
-    it('should update state when addRating is called', async () => {
-
-    const expected = 5
-    expect(wrapper.state('userRating')).toEqual(0);
-    await instance.addRating(mockRating)
-    await expect(wrapper.state('userRating')).toEqual(expected)
+    it('should update state', () => {
+      const newMockResponse = { rating: {user_id: 21, movie_id: 21, rating: 4} }
+      expect(instance.state.userRating).toEqual(0)
+      instance.setRating(newMockResponse)
+      expect(instance.state.userRating).toEqual(4)
+      instance.removeRating(instance.props.ratings, instance.props.movie, instance.props.userId);
+      expect(instance.state.userRating).toEqual(0)
     })
   })
 })
