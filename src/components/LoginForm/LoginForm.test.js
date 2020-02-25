@@ -13,7 +13,7 @@ import React from 'react';
 import { LoginForm, mapDispatchToProps } from './LoginForm';
 import { shallow } from 'enzyme';
 import { loginUser, loadUserRatings } from '../../actions';
-import { fetchData } from '../../utils/fetchCalls';
+import { fetchData, fetchDataAlt } from '../../utils/fetchCalls';
 
 jest.mock('../../utils/fetchCalls.js')
 
@@ -105,5 +105,29 @@ describe('LoginForm', () => {
             instance.validateUser(mockEvent,'Debbie Downer','raincloud')
             expect(wrapper.state('error')).toEqual('Invalid Login');
         })
+
+        it('should fire rating fetch on successful fetch', () => {
+            const instance = wrapper.instance();
+            const mockEvent = { preventDefault: jest.fn() }
+
+            jest.mock(mapDispatchToProps)
+
+            wrapper = shallow(<LoginForm addUserRatingsToStore={jest.fn()} addUserToStore={jest.fn()}/>)
+
+            //jest fn to replace mock
+
+            fetchData.mockImplementation(() => {
+                return Promise.resolve({ user })
+            })
+
+            fetchDataAlt.mockImplementation(() => {
+                return Promise.resolve({ user })
+            })
+
+            instance.validateUser(mockEvent, 'Debbie Downer', 'raincloud')
+
+        })
     });
+
+    
 })
