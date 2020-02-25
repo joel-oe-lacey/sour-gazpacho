@@ -184,7 +184,7 @@ let mockRatings = [
       instance.setRating(newMockResponse)
       expect(instance.state.userRating).toEqual(4)
       instance.removeRating(instance.props.ratings, instance.props.movie, instance.props.userId);
-      expect(instance.state.userRating).toEqual(0)
+      expect(wrapper.state('userRating')).toEqual(0)
     })
   })
 })
