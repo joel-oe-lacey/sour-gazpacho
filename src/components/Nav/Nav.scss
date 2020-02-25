@@ -1,7 +1,9 @@
+@import '../../variables';
+
 .nav {
   height: 60px;
   width: 100%;
-  background-color: #FEB40D;
+  background-color: $primary-yellow-color;
   display: grid;
   grid-template-columns: repeat(3, 33%);
   grid-gap: 10%;
@@ -14,12 +16,12 @@
   width: 20%;
   text-decoration: none;
   text-align: center;
-  background-color: #8E0204;
-  color: #FEB40D;
+  background-color: $primary-red-color;
+  color: $primary-yellow-color;
   font-size: 1.2em;
   font-weight: bold;
   margin-left: 5%;
-  border: 1px solid #8E0204;
+  border: 1px solid $primary-red-color;
   border-bottom-right-radius: 5% 40%;
   border-top-right-radius: 5% 40%;
   border-bottom-left-radius: 5% 40%;
@@ -29,7 +31,7 @@
 
   &:hover {
       cursor: pointer;
-      box-shadow: 0.1rem 0.3rem 0.6rem #202020;
+      box-shadow: 0.1rem 0.3rem 0.6rem $primary-gray-color;
   }
 }
 
@@ -42,5 +44,5 @@
 
 h1 {
   font-size: 1.5em;
-  color: #8E0204;
+  color: $primary-red-color;
 }

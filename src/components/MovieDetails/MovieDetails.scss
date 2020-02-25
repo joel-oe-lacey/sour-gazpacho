@@ -1,8 +1,9 @@
+@import '../../variables';
+
 .movie-detail-card {
   background-color: rgba(255, 255, 255, 0.9);
-  border: solid 10px #8E0204;
+  border: solid 10px $primary-red-color;
   margin: 10px;
-  // height: 500px;
   width: 70%;
 }
 
@@ -21,7 +22,7 @@
 }
 
 .movie-title-detail {
-  color: #FFF;
+  color: $primary-white-color;
   font-size: 40px;
   margin-bottom: 50px;
   width: 70%;
@@ -45,7 +46,7 @@
 
 .detail-rating {
   font-size: 25px;
-  color: #8E0204;
+  color: $primary-red-color;
 }
 
 .detail-release {
@@ -69,7 +70,7 @@
 .movie-btn {
   width: 30%;
   height: 50px;
-  background-color: #FEB40D;
+  background-color: $primary-yellow-color;
   color: black;
   font-size: 20px;
   border: solid black 0px;
@@ -83,6 +84,6 @@
 }
 
 #mid-btn {
-  background-color: #8E0204;
-  color: #FFF;
+  background-color: $primary-red-color;
+  color: $primary-white-color;
 }
