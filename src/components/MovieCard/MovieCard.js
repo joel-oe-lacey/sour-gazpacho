@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './MovieCard.scss';
 import MovieDetails from '../MovieDetails/MovieDetails'
+import PropTypes from 'prop-types'
+
 
 
 
@@ -16,6 +18,14 @@ const MovieCard = ({ id, title, userRating, averageRating, poster }) => {
           </div>
         </article>
     )
+}
+
+PropTypes.propTypes = {
+  id: PropTypes.number,
+  title: PropTypes.string,
+  userRating: PropTypes.string,
+  averageRating: PropTypes.string,
+  poster: PropTypes.string
 }
 
 export default MovieCard;
