@@ -3,6 +3,8 @@ import './MovieDetails.scss';
 import { connect } from 'react-redux';
 import { fetchData } from '../../utils/fetchCalls'
 import { Link } from 'react-router-dom';
+import { updateStore, addUserRating } from '../../actions';
+
 
 export class MovieDetails extends Component{
   constructor() {
@@ -26,7 +28,7 @@ export class MovieDetails extends Component{
   }
 
   setRating = (data) => {
-    this.props.ratings.push(data.rating);
+    this.props.addRatingToStore(data.rating);
     this.setState({ userRating: data.rating.rating });
   }
 
@@ -40,8 +42,12 @@ export class MovieDetails extends Component{
         },
     }
     fetchData(`https://rancid-tomatillos.herokuapp.com/api/v1/users/${parseInt(userId)}/ratings/${ratingToRemove.id}`, options)
-      .then(() => ratings.splice(ratingIndex, 1))
-      .then(() => this.setState({ userRating: 0 }))
+      .then(() => {
+        let copyOfRatings = ratings
+        copyOfRatings.splice(ratingIndex, 1)
+        this.props.updateRatingsInStore(copyOfRatings)
+        this.setState({ userRating: 0 })
+      })
   }
 
   render() {
@@ -110,4 +116,9 @@ export const mapStateToProps = state => ({
   ratings: state.ratings
 })
 
-export default connect(mapStateToProps)(MovieDetails);
+export const mapDispatchToProps = dispatch => ({
+  updateRatingsInStore: (ratings) => { dispatch(updateStore(ratings)) },
+  addRatingToStore: (rating) => { dispatch(addUserRating(rating)) }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(MovieDetails);
