@@ -36,6 +36,6 @@ A user page where they can see all the movies they have rated <br />
 Ability to sort mivies by title, release date, or rating <br />
 
 ### Group Members
-John Cassidy [http://github.com/pJanks](github.com/pJanks)
-Joel Lacey [http://github.com/joel-oe-lacey](github.com/joel-oe-lacey)
-Virginia Ladd [http://github.com/vladd-png](github.com/vladd-png)
+#### John Cassidy [http://github.com/pJanks](github.com/pJanks) <br />
+#### Joel Lacey [http://github.com/joel-oe-lacey](github.com/joel-oe-lacey) <br />
+#### Virginia Ladd [http://github.com/vladd-png](github.com/vladd-png) <br />
