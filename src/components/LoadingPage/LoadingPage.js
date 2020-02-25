@@ -4,7 +4,7 @@ import './LoadingPage.scss';
 const LoadingPage = () => {
     return (
         <section className="loading">
-          <h1>Loading Movies . . .</h1>
+          <h1 className="loading-header">Loading Movies . . .</h1>
           <div className="lds-spinner">
             <div></div>
             <div></div>
