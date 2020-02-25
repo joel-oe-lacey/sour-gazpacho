@@ -14,6 +14,7 @@
 }
 
 .center-poster {
+  animation: fade-in 6s cubic-bezier(0.390, 0.575, 0.565, 1.000) infinite both;
   border: solid 5px #8E0204;
   margin-top: 20px;
   height: 500px;
@@ -24,6 +25,7 @@
 }
 
 .center-reflection {
+  animation: fade-in 6s cubic-bezier(0.390, 0.575, 0.565, 1.000) infinite both;
   border: solid 5px #8E0204;
   object-fit: cover;
   height: 500px;
@@ -35,12 +37,28 @@
   mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 25%);
 }
 
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 .text-box {
   display: flex;
   flex-direction: column;
 }
 
 .center-text {
+  animation: fade-in 6s cubic-bezier(0.390, 0.575, 0.565, 1.000) infinite both;
   color: #FFF;
   font-size: 20px;
   width: 500px;
