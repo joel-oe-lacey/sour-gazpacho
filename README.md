@@ -2,6 +2,12 @@
 
 Have you ever watched a movie and said to yourself, “Ugh, I wish I could throw a rancid tomatillo at the screen!” Or maybe you loved the movie and you could really go for a nice, fresh tomatillo salsa to enjoy the moment. Well it’s your lucky day.
 
+## Screenshots
+![Browse](./src/assets/Interface_browse.gif)
+![Homepage](./src/assets/homepage.png)
+![Details](./src/assets/details.png)
+
+
 ### Setup
 
 To run this project pull down this repo and run `npm start`.<br />
