@@ -1,10 +1,9 @@
 import React from 'react';
 import './CenterMovie.scss';
 import { Link } from 'react-router-dom';
-
+import PropTypes from 'prop-types';
 
 const CenterMovie = ({ movie }) => {
-  console.log(movie);
   let month;
   const formatDate = movie.release_date.split('-')
   for(var i = 0; i < 13; i++) {
@@ -37,6 +36,10 @@ const CenterMovie = ({ movie }) => {
       </section>
     </article>
   )
+}
+
+CenterMovie.propTypes = {
+  movie: PropTypes.object
 }
 
 export default CenterMovie
