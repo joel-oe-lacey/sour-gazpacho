@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './Homepage.scss';
 import MovieCard from '../MovieCard/MovieCard';
 import CenterMovie from '../CenterMovie/CenterMovie';
+import PropTypes from 'prop-types';
 
 
 const Homepage = ({ allMovies }) => {
@@ -17,6 +18,10 @@ const Homepage = ({ allMovies }) => {
           <div className='movie-homepage'>{movieData}</div>
         </section>
     )
+}
+
+Homepage.propTypes = {
+  allMovies: PropTypes.array
 }
 
 export default Homepage;

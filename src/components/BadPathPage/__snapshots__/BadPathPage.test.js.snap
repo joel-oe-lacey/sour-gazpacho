@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BadPathPage should match a snapshot as expected 1`] = `
+<main>
+  <Link
+    to="/"
+  >
+    <button>
+      Homepage
+    </button>
+  </Link>
+  <h1>
+    PAGE NOT FOUND . . .
+  </h1>
+</main>
+`;

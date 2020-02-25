@@ -15,8 +15,10 @@ describe('App', () => {
       wrapper = shallow(<App />)
     })
 
-    it('should call fetchData when component mounts', () => {
-      const movies = [
+    it('should call fetchData when component mounts with the correct url', () => {
+
+      const movies = {
+        movies: [
         {
           "id": 21,
           "title": "Sonic the Hedgehog",
@@ -35,23 +37,21 @@ describe('App', () => {
           "overview": "All unemployed, Ki-taek's family takes peculiar interest in the wealthy and glamorous Parks for their livelihood until they get entangled in an unexpected incident.",
           "average_rating": 4
         }
-      ]
+      ]}
+      window.fetch = jest.fn().mockImplementation(() => {
+        return Promise.resolve({
+          ok: true,
+          json: () => Promise.resolve(mockResponse)
+        });
+      })
+      let mockFetchData = jest.fn()
       const instance = wrapper.instance();
-      window.fetch = jest.fn();
-      let spy = jest.spyOn(instance, 'fetchData')
+      instance.componentDidMount = jest.fn().mockImplementation(() => mockFetchData())
+      let spy = jest.spyOn(instance, 'componentDidMount')
       instance.componentDidMount();
-      expect(instance.fetchData).toHaveBeenCalled();
+      expect(mockFetchData).toHaveBeenCalled();
     })
   })
-
-    // it('calls `func` when mounted', () => {
-    // const wrapper = shallow(<Test />);
-    // const instance = wrapper.instance();
-    // jest.spyOn(instance, 'func');
-    // instance.componentDidMount();
-    // expect(instance.func).toHaveBeenCalled();
-    // });
-
 
   describe('mapStateToProps', () => {
     it('should be able to update state', () => {

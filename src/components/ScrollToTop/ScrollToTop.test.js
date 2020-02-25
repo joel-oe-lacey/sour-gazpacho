@@ -1,7 +1,7 @@
 import React from 'react';
 import ScrollToTop from './ScrollToTop.js';
 import App from '../App/App.js';
-import { shallow, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import { BrowserRouter } from 'react-router-dom';
 
 describe('ScrollToTop', () => {

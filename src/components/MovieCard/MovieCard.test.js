@@ -10,7 +10,7 @@ let wrapper;
       id={22}
       title='Parasite'
       poster='https:/image.some.jpg'
-      averageRating={5}
+      averageRating={5.0}
       userRating={null}
       />)
   })
