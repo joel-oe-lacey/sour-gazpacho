@@ -1,21 +1,25 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import './MovieCard.scss';
-import MovieDetails from '../MovieDetails/MovieDetails'
 
+const MovieCard = ({ id, title, averageRating, poster, userRating }) => {
+    const mapRating = userRating.find(rating => rating.movie_id === id)
 
-
-const MovieCard = ({ id, title, userRating, averageRating, poster }) => {
     return (
         <article className="movie-card">
-          <Link to={`/movies/${id}`}><img src={poster} alt='movie poster' className='movie-poster'/></Link>
+        <Link to={`/movies/${id}`} className='movie-poster'><img src={poster} alt='movie poster' className='movie-poster'/></Link>
           <div className='movie-info'>
             <h3 className='movie-title'>{title}</h3>
-            <h4 className='movie-rating'>AverageRating: {(averageRating).toFixed(1)}</h4>
-            {userRating && <h4 className='movie-rating'>Your Rating: {averageRating}</h4>}
+            <h4 className='movie-rating'>Average Rating: {(averageRating).toFixed(1)}</h4>
+            {mapRating && <h4 className='movie-rating'>{`Your Rating: ${mapRating.rating}`}</h4>} 
           </div>
         </article>
     )
 }
 
-export default MovieCard;
+export const mapStateToProps = state => ({
+  userRating: state.ratings
+})
+
+export default connect(mapStateToProps)(MovieCard);
