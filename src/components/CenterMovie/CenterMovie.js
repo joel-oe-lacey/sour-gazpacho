@@ -7,12 +7,11 @@ class CenterMovie extends Component{
   constructor({ movie }) {
     super({ movie })
     this.state = {
-      currentMovie: movie[0]
+      currentMovie: movie[Math.floor(Math.random() * 20)]
     }
   }
   componentDidMount() {
-    let randomNum = Math.floor(Math.random() * 20)
-    this.interval = setInterval(() => this.setState({ currentMovie: this.props.movie[randomNum] }), 3000)
+    this.interval = setInterval(() => this.setState({ currentMovie: this.props.movie[Math.floor(Math.random() * 20)] }), 6000)
   }
 
   componentWillUnmount() {
