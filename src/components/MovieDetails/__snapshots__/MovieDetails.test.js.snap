@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieDetails should be an instance of movieDetails 1`] = `
+<section
+  className="movie-details"
+  style={
+    Object {
+      "backgroundImage": "url(https://image.another.jpg)",
+    }
+  }
+>
+  <h1
+    className="movie-title-detail"
+  >
+    Parasite
+  </h1>
+  <div
+    className="movie-detail-card"
+  >
+    <img
+      alt="movie poster"
+      className="movie-poster-detail"
+      src="https://image.some.jpg"
+    />
+    <h2
+      className="detail-title"
+    >
+      Parasite
+    </h2>
+    <h3
+      className="detail-rating"
+    >
+      Average Rating: 
+      5
+    </h3>
+    <h3
+      className="detail-release"
+    >
+      Release Date: 
+      May
+       
+      30
+      , 
+      2019
+    </h3>
+    <p
+      className="detail-summary"
+    >
+      Overview: 
+      All unemployed, Ki-taek's family takes peculiar interest in the wealthy and glamorous Parks for their livelihood until they get entangled in an unexpected incident.
+    </p>
+  </div>
+  <div
+    className="detail-btns"
+  >
+    <Link
+      className="movie-btn"
+      to="/movies/21"
+    >
+      See Previous Movie
+    </Link>
+    <Link
+      className="movie-btn"
+      id="mid-btn"
+      to="/"
+    >
+      Go Back to All Movies
+    </Link>
+    <Link
+      className="movie-btn"
+      to="/movies/23"
+    >
+      See Next Movie
+    </Link>
+  </div>
+</section>
+`;
