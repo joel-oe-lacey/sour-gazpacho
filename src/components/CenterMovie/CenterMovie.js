@@ -56,7 +56,7 @@ class CenterMovie extends Component{
 }
 
 CenterMovie.propTypes = {
-  movie: PropTypes.object
+  movie: PropTypes.array
 }
 
 export default CenterMovie
