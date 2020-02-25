@@ -4,6 +4,8 @@ export const ratingReducer = (state = [], action) => {
             return action.ratings;
         case 'ADD_RATING':
             return [...state, action.rating]
+        case 'REMOVE_RATING':
+            return action.ratings
         default:
             return state;
     }
