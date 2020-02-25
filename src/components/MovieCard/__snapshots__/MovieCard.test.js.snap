@@ -24,8 +24,8 @@ exports[`MovieCard should match the snapshot 1`] = `
     <h4
       className="movie-rating"
     >
-      AverageRating: 
-      5
+      Average Rating: 
+      5.0
     </h4>
   </div>
 </article>
