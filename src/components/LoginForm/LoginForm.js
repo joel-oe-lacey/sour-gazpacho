@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { loginUser, loadUserRatings } from '../../actions';
 import './LoginForm.scss'
-import { fetchData } from '../../utils/fetchCalls';
+import { fetchData, fetchDataAlt } from '../../utils/fetchCalls';
 
 //need to edit to create a post request on login
 //if successful proceed and post via dispatch 
@@ -42,15 +42,14 @@ export class LoginForm extends Component {
             .then(response => response.json())
             .then(data => {
                 if(data.user) {
-                    fetchData(`https://rancid-tomatillos.herokuapp.com/api/v1/users/${data.user.id}/ratings`)
+                    fetchDataAlt(`https://rancid-tomatillos.herokuapp.com/api/v1/users/${data.user.id}/ratings`)
                         .then(response => response.json())
                         .then(ratingData => this.props.addUserRatingsToStore(ratingData.ratings))
                     this.props.addUserToStore(data.user) 
                     this.setState({ auth: true })
                 }
             })
-            .catch(error => {
-                console.log('hit catch')
+            .catch(() => {
                 this.setState({ error: "Invalid Login" })
             })
     }
