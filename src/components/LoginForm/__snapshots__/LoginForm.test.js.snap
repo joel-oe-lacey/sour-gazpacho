@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginForm LoginForm Container should match snapshot 1`] = `
+<section
+  className="form-container"
+>
+  <form
+    className="form"
+  >
+    <h1>
+      Sour Gazpacho
+    </h1>
+    <input
+      name="email"
+      onChange={[Function]}
+      placeholder="Email..."
+      required={true}
+      type="text"
+    />
+    <input
+      name="password"
+      onChange={[Function]}
+      placeholder="Password..."
+      required={true}
+      type="text"
+    />
+    <h4 />
+    <button
+      onClick={[Function]}
+    >
+      Login
+    </button>
+  </form>
+</section>
+`;
