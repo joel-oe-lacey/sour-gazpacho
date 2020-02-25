@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './MovieDetails.scss';
 import { connect } from 'react-redux';
-import { render } from 'enzyme';
 import { fetchData } from '../../utils/fetchCalls'
 import { Link } from 'react-router-dom';
 
