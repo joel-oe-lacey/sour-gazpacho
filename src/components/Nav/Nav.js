@@ -3,7 +3,7 @@ import './Nav.scss';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logOut } from '../../actions';
-import bloodSplatter from '../../assets/blood-splatter.png';
+import bloodSplatter from '../../assets/tomato-splatter.png';
 import PropTypes from 'prop-types'
 
 export const Nav = ({ user, logOutFromStore }) => {
@@ -13,7 +13,7 @@ export const Nav = ({ user, logOutFromStore }) => {
                 user.id ? <Link to="/" className="nav-link" onClick={logOutFromStore}>Log Out</Link> : <Link to="/login" className="nav-link" onClick={logOutFromStore}>Login</Link>
             }
             <h1>Sour Gazpacho</h1>
-            <img src={bloodSplatter} alt='kill bill style blood splatter' id='blood-splatter'/>
+            <img src={bloodSplatter} alt='kill bill style blood splatter' id='tomato-splatter'/>
         </nav>
     )
 }

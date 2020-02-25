@@ -1,3 +1,5 @@
+@import '../../variables';
+
 .center-card {
   width: 440px;
   height: 540px;
@@ -15,7 +17,7 @@
 
 .center-poster {
   animation: fade-in 6s cubic-bezier(0.390, 0.575, 0.565, 1.000) infinite both;
-  border: solid 5px #8E0204;
+  border: solid 5px $primary-red-color;
   margin-top: 20px;
   height: 500px;
   width: 400px;
@@ -26,7 +28,7 @@
 
 .center-reflection {
   animation: fade-in 6s cubic-bezier(0.390, 0.575, 0.565, 1.000) infinite both;
-  border: solid 5px #8E0204;
+  border: solid 5px $primary-red-color;
   object-fit: cover;
   height: 500px;
   width: 403px;
@@ -34,17 +36,17 @@
   opacity: 0.3;
   margin-top: 10px;
   margin-left: -30px;
-  mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 25%);
+  mask-image: linear-gradient(to top, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 25%);
 }
 
 @keyframes fade-in {
   0% {
     opacity: 0;
   }
-  20% {
+  10% {
     opacity: 1;
   }
-  75% {
+  85% {
     opacity: 1;
   }
   100% {
@@ -72,7 +74,7 @@
 }
 
 #center-rating {
-  color: #8E0204;
+  color: $primary-red-color;
   font-size: 30px;
   margin-bottom: 20px;
   margin-top: 20px;

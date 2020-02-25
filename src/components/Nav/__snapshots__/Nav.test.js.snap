@@ -16,8 +16,8 @@ exports[`Nav Nav Component should be an instance of Nav 1`] = `
   </h1>
   <img
     alt="kill bill style blood splatter"
-    id="blood-splatter"
-    src="blood-splatter.png"
+    id="tomato-splatter"
+    src="tomato-splatter.png"
   />
 </nav>
 `;

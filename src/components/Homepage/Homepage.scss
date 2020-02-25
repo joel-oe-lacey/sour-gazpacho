@@ -1,3 +1,5 @@
+@import '../../variables';
+
 .homepage {
   height: 92%;
   width: 100%;
@@ -6,7 +8,7 @@
 .movie-list-title {
   position: absolute;
   font-size: 50px;
-  color: #FFF;
+  color: $primary-white-color;
 }
 
 .movie-homepage {
