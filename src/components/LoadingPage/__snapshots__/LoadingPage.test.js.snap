@@ -4,7 +4,9 @@ exports[`LoadingPage should match a snapshot as expected 1`] = `
 <section
   className="loading"
 >
-  <h1>
+  <h1
+    className="loading-header"
+  >
     Loading Movies . . .
   </h1>
   <div
