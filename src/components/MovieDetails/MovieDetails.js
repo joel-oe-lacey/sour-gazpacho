@@ -22,15 +22,18 @@ export class MovieDetails extends Component{
         body: JSON.stringify({ movie_id: this.props.movie.id, rating: parseInt(rating) }),
     }
     fetchData(`https://rancid-tomatillos.herokuapp.com/api/v1/users/${this.props.userId}/ratings`, options)
-      .then(response => response.json())
-      .then(rating => this.props.ratings.push(rating.rating))
-      .then(data => this.setState({ userRating: data }))
+        .then(response => response.json())
+        .then(data => this.setRating(data));
+  }
+
+  setRating = (data) => {
+    this.props.ratings.push(data.rating);
+    this.setState({ userRating: data.rating.rating });
   }
 
   removeRating = (ratings, movie, userId) => {
     let ratingToRemove = ratings.find(rating => rating.movie_id === movie.id)
     let ratingIndex = ratings.indexOf(ratingToRemove)
-
     const options = {
         method: "DELETE",
         headers: {
