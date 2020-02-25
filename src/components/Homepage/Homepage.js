@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Homepage.scss';
 import MovieCard from '../MovieCard/MovieCard';
 import CenterMovie from '../CenterMovie/CenterMovie';
