@@ -1,3 +1,62 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CenterMovie should match the snapshot 1`] = `undefined`;
+exports[`CenterMovie should match the snapshot 1`] = `
+<article
+  className="center-card"
+>
+  <div
+    className="image-reflection"
+  >
+    <Link
+      to="/movies/undefined"
+    >
+      <img
+        alt="movie poster"
+        className="center-poster"
+        src="https:/image.some.jpg"
+      />
+    </Link>
+    <img
+      alt="movie poster"
+      className="center-reflection"
+      src="https:/image.some.jpg"
+    />
+  </div>
+  <div
+    className="center-info"
+  />
+  <section
+    className="text-box"
+  >
+    <h3
+      className="center-text"
+      id="center-title"
+    >
+      Sonic The Hedhehog
+    </h3>
+    <h4
+      className="center-text"
+      id="center-rating"
+    >
+      Average Rating: 
+      7.0
+    </h4>
+    <h4
+      className="center-text"
+      id="center-date"
+    >
+      October
+       
+      19
+      , 
+      2020
+    </h4>
+    <p
+      className="center-text"
+      id="center-overview"
+    >
+      Movie Summary
+    </p>
+  </section>
+</article>
+`;
