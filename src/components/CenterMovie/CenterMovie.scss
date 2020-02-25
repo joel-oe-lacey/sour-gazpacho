@@ -68,25 +68,18 @@
 }
 
 #center-title {
-  font-size: 60px;
-  margin-bottom: 50px;
-  margin-top: 50px;
+  @include centerAlign(60px, 50px);
 }
 
 #center-rating {
   color: $primary-red-color;
-  font-size: 30px;
-  margin-bottom: 20px;
-  margin-top: 20px;
+  @include centerAlign(30px, 20px);
 }
 
 #center-date {
-  font-size: 30px;
-  margin-bottom: 20px;
-  margin-top: 20px;
+  @include centerAlign(30px, 20px);
 }
 
 #center-overview {
   font-size: 20px;
-
 }

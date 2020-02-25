@@ -20,10 +20,7 @@
   font-weight: bold;
   margin-left: 5%;
   border: 1px solid $primary-red-color;
-  border-bottom-right-radius: 5% 40%;
-  border-top-right-radius: 5% 40%;
-  border-bottom-left-radius: 5% 40%;
-  border-top-left-radius: 5% 40%;
+  @include roundedStyling(40%);
   transition: box-shadow 300ms;
   box-shadow: none;
 
