@@ -8,6 +8,11 @@ export const loginUser = (user) => ({
     user
 })
 
+export const updateStore = (ratings) => ({
+  type: 'REMOVE_RATING',
+  ratings
+})
+
 export const logOut = () => ({
     type: 'LOG_OUT',
     user: {}
