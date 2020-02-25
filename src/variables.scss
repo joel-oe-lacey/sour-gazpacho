@@ -2,3 +2,15 @@ $primary-red-color: #8E0204;
 $primary-white-color: #FFF;
 $primary-gray-color: #202020;
 $primary-yellow-color: #FEB40D;
+
+
+//create a flex mixin
+//a mixin for center alignment
+
+//a mixin for login styles 
+@mixin roundedStyling($radiusAmt) {
+    border-bottom-right-radius: 5% $radiusAmt;
+    border-top-right-radius: 5% $radiusAmt;
+    border-bottom-left-radius: 5% $radiusAmt;
+    border-top-left-radius: 5% $radiusAmt;
+}
