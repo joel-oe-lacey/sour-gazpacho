@@ -5,13 +5,6 @@ import { loginUser, loadUserRatings } from '../../actions';
 import './LoginForm.scss'
 import { fetchData, fetchDataAlt } from '../../utils/fetchCalls';
 
-//need to edit to create a post request on login
-//if successful proceed and post via dispatch 
-//if unsuccessful need to display error and prompt for retry 
-//how to display loading state in between?
-
-//set up tests for login also. 
-
 export class LoginForm extends Component {
     constructor() {
         super()
