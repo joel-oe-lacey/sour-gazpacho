@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './MovieDetails.scss';
 import { connect } from 'react-redux';
-import { render } from 'enzyme';
 import { fetchData } from '../../utils/fetchCalls'
 import { Link } from 'react-router-dom';
 
@@ -64,7 +63,6 @@ export class MovieDetails extends Component{
       }
     }
     const mapRating = ratings.find(rating => rating.movie_id === movie.id)
-    console.log(movie);
     return (
       <section className="movie-details" style={ sectionStyle }>
         <h1 className='movie-title-detail'>{movie.title}</h1>
